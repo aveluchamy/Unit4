@@ -1,0 +1,78 @@
+---
+title: "Unit 4 Homework"
+author: "Aravind Veluchamy"
+date: "June 3, 2016"
+output:
+  html_document:
+   keep_md: true
+---
+# Bootstrap demo using random sample generated using rnorm function
+##1st example
+```{r}
+#First random distribution with sample size 50 (mean 22 nd SD 3)
+ x1 <-rnorm(50,22,3)
+xbar1 <- mean(x1)
+xbar1
+nsims1 <- 1000
+bootnorm1 <- numeric(nsims1)
+for(i in 1:nsims1){
+temp1 <- sample (x1,50,replace=TRUE)
+bootnorm1[i] <- mean(temp1) 
+}
+mean(bootnorm1)
+summary(bootnorm1)
+#to demonstrate central limit theorem with the histogram plot
+hist(bootnorm1)
+```
+##2nd example
+```{r}
+#Second random distribution with sample size 100  (mean 22 and SD 3)
+ x2 <-rnorm(100,22,3)
+xbar2 <- mean(x2)
+xbar2
+nsims2 <- 1000
+bootnorm2 <- numeric(nsims2)
+for (i in 1:nsims2){
+temp2 <- sample (x2,100,replace=TRUE)
+bootnorm2[i] <- mean(temp2) 
+}
+mean(bootnorm2)
+summary(bootnorm2)
+#to demonstrate central limit theorem with the histogram plot
+hist(bootnorm2)
+```
+# Bootstrap demo using random sample generated using rexp function
+##1st Example
+```{r}
+#Second random distribution with  sample size 50  
+ x3 <-rexp(50)
+xbar3 <- mean(x3)
+xbar3
+nsims3 <- 1000
+bootnorm3 <- numeric(nsims3)
+for (i in 1:nsims3){
+temp3 <- sample (x3,50,replace=TRUE)
+bootnorm3[i] <- mean(temp3) 
+}
+mean(bootnorm3)
+summary(bootnorm3)
+#to demonstrate central limit theorem with the histogram plot
+hist(bootnorm3)
+```
+##2nd Example
+```{r}
+#Second random distribution with  sample size 100  
+ x4 <-rexp(100)
+xbar4 <- mean(x4)
+xbar4
+nsims4 <- 1000
+bootnorm4 <- numeric(nsims4)
+for (i in 1:nsims4){
+temp4 <- sample (x4,100,replace=TRUE)
+bootnorm4[i] <- mean(temp4) 
+}
+mean(bootnorm4)
+summary(bootnorm4)
+#to demonstrate central limit theorem with the histogram plot
+hist(bootnorm4)
+```
